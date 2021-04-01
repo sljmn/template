@@ -1,11 +1,41 @@
 <script>
+	import Api from './Api.svelte';
+	import Test from './Test.svelte'
+
 	export let name;
+	export let age;
+
+	let count = 0;
+
+	function handleMouseenter() {
+		// event handler code goes here
+		count += 1;
+console.log(name)
+let test = document.getElementById("test").innerHTML = count
+
+
+
+	}
+
+
 </script>
+
+<!-- <button on:click={handleClick}></button> -->
+<Test></Test>
+	<button on:mouseenter={handleMouseenter}>
+
+
+	Clicked {count} {count === 1 ? 'time' : 'times'}
+	
+</button>
 
 <main>
 	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	Dit is SVELTE en dit is COOL 👍🏻
+	<h1>your age is  <span id="test"> {age	}  </span> !</h1>
 </main>
+
+<Api></Api>
 
 <style>
 	main {
