@@ -1,5 +1,9 @@
 <script>
-	import Api from './Api.svelte';
+	import Api_dog_ceo from '../components/Api_dog_ceo.svelte';
+	import Api_bol from '../components/Api_bol.svelte';
+
+	
+
 	import Test from './Test.svelte'
 
 	export let name;
@@ -13,36 +17,59 @@
 console.log(name)
 let test = document.getElementById("test").innerHTML = count
 
-
-
 	}
+const handleMouseenter1 = () => document.body.style.backgroundColor = "red";
+const handleMouseleave = () => document.body.style.backgroundColor = "green";
 
+const handleButtonClick = () => document.body.style.backgroundColor = "#ededed";
 
 </script>
 
 <!-- <button on:click={handleClick}></button> -->
-<Test></Test>
+
+<main>
+
+	<button on:click={handleButtonClick} id="stop">stop de kleuren gekte?</button>
+
+	<Test></Test>
 	<button on:mouseenter={handleMouseenter}>
 
 
 	Clicked {count} {count === 1 ? 'time' : 'times'}
 	
 </button>
+	<Api_bol> </Api_bol>
 
-<main>
+
 	<h1>Hello {name}!</h1>
 	Dit is SVELTE en dit is COOL 👍🏻
 	<h1>your age is  <span id="test"> {age	}  </span> !</h1>
+
+	<Api_dog_ceo></Api_dog_ceo>
+
+
 </main>
 
-<Api></Api>
+
+<svelte:body
+	on:mouseenter={handleMouseenter1}
+	on:mouseleave={handleMouseleave}
+/>
+
 
 <style>
+
+	:global(body) {
+		background-color: #ededed;
+	}
+
 	main {
 		text-align: center;
 		padding: 1em;
-		max-width: 240px;
+		width: 540px;
 		margin: 0 auto;
+		background-color: white;
+
 	}
 
 	h1 {
@@ -58,3 +85,5 @@ let test = document.getElementById("test").innerHTML = count
 		}
 	}
 </style>
+
+
